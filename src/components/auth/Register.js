@@ -1,13 +1,17 @@
-import React, { useRef, useState } from "react";
-import { ButtonDropdown, DropdownItem, DropdownToggle, DropdownMenu } from "reactstrap";
+import React, { useRef, useContext } from "react";
 import "./Login.css";
+import { AccountContext } from "../accounts/AccountProvider";
 
+
+  
 const Register = (props) => {
   const firstName = useRef();
   const lastName = useRef();
   const email = useRef();
   const password = useRef();
   const verifyPassword = useRef();
+  const {accounts} = useContext(AccountContext)
+
 
   const existingUserCheck = () => {
     return fetch(`http://localhost:9001/customers?email=${email.current.value}`)
@@ -110,13 +114,13 @@ const Register = (props) => {
           />
         </fieldset>
         <fieldset>
-        <ButtonDropdown>
-      <DropdownMenu>
-        <DropdownItem>Customer</DropdownItem>
-        <DropdownItem divider />
-        <DropdownItem>Business</DropdownItem>
-      </DropdownMenu>
-    </ButtonDropdown>
+        <option value="0">Account Type</option>
+        {accounts.map(e => (
+                            <option key={e.id} value={e.id}>
+                                {e.name}
+                            </option>
+                        ))}
+            
         </fieldset>
         <fieldset>
           <button type="submit">Sign in</button>
