@@ -1,9 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
+import { Dashboard } from "./Dashboard"
+import Auth from "./auth/Auth"
 
-export const Welcome = () => (
-    <>
-        <h1> Local Yokel </h1>
-        <small>Find the things you love</small>
+export default () => {
+    const [check, update] = useState(false)
+    const toggle = () => update(!check)
 
-    </>
-)
+    return (
+        localStorage.getItem("ly_user") ? <Dashboard /> : <Auth toggle={toggle} />
+    )
+}
