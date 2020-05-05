@@ -7,8 +7,8 @@ export default ({toggle}) => {
         <>
             <h1 className="welcome">Local Yokel</h1>
             <div className="authContainer">
-                <Login toggle={toggle} />
-                <Register toggle={toggle} />
+                    <Login toggle={toggle} />
+                 
             </div>
         </>
     )

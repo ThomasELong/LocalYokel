@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Dashboard } from "./Dashboard"
+import { Main } from "./Main"
 import Auth from "./auth/Auth"
 import { AccountProvider } from "./accounts/AccountProvider"
 
@@ -8,7 +8,7 @@ export default () => {
     const toggle = () => update(!check)
 
     return (
-        localStorage.getItem("ly_user") ? <Dashboard /> : <AccountProvider> <Auth toggle={toggle} /> </AccountProvider>
+        localStorage.getItem("ly_user") ? <Main /> : <AccountProvider><Auth toggle={toggle} /></AccountProvider>
     )
 }
 
