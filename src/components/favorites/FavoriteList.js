@@ -10,7 +10,7 @@ export default () => {
         <>
         <div className="favoriteHeader">
             <h2 className="favoriteTitle">Your Favorites</h2>
-            <div className="favoritesContainer">
+            <div>
                 {
                     favorites.map(fav => <Favorites key={fav.id} favorites={fav} />
                     )

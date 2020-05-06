@@ -7,6 +7,7 @@ import "./favorites/Favorite.css"
 
 export const MainPage = () => {
 
+  
     return (
         <div className="mainContainer">
             <div className="searchContainer">
