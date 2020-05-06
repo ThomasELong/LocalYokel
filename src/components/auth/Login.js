@@ -1,17 +1,15 @@
 import React, { useRef } from "react";
 import "./Login.css";
-import { AccountProvider } from "../accounts/AccountProvider";
 import Register from "./Register";
 
-const Login = (props) => {
+const Login = ({toggle}) => {
   const email = useRef();
   const password = useRef();
-  const customerName = useRef();
-  const address = useRef();
+
 
   const existingUserCheck = () => {
-    return fetch(`http://localhost:9001/customers?email=${email.current.value}`)
-      .then((_) => _.json())
+      return fetch(`http://localhost:9001/users?email=${email.current.value}`)
+      .then((res) => res.json())
       .then((user) => {
         if (user.length) {
           return user[0];
@@ -24,9 +22,10 @@ const Login = (props) => {
     e.preventDefault();
 
     existingUserCheck().then((exists) => {
+      
       if (exists && exists.password === password.current.value) {
         localStorage.setItem("ly_user", exists.id);
-        props.toggle();
+        toggle();
       } else if (exists && exists.password !== password.current.value) {
         window.alert("Password does not match");
       } else if (!exists) {
@@ -37,7 +36,7 @@ const Login = (props) => {
 
   return (
     <main className="container--login">
-      <form className="form--login">
+      <form className="form--login" >
         <div onSubmit={handleLogin}>
           <h2>Please sign in</h2>
           <fieldset>
@@ -66,9 +65,7 @@ const Login = (props) => {
           <button type="submit">Sign in</button>
         </div>
         <fieldset>
-          <AccountProvider>
-            <Register />
-          </AccountProvider>
+        <Register toggle={toggle} />
         </fieldset>
       </form>
     </main>

@@ -4,7 +4,6 @@
 
 .authContainer {
     display: flex;
-    padding: 0 10rem;
     flex-direction: column;
     
 }

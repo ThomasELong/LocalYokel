@@ -12,7 +12,7 @@ const Register = (props) => {
   const { accounts } = useContext(AccountContext);
 
   const existingUserCheck = () => {
-    return fetch(`http://localhost:9001/customers?email=${email.current.value}`)
+    return fetch(`http://localhost:9001/users?email=${email.current.value}`)
       .then((_) => _.json())
       .then((customer) => {
         if (customer.length) {
@@ -23,50 +23,28 @@ const Register = (props) => {
   };
 
   const handleRegister = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (password.current.value === verifyPassword.current.value) {
       existingUserCheck().then(() => {
-        if (accounts.current.value === "Customer") {
-          fetch("http://localhost:9001/customers", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: email.current.value,
-              password: password.current.value,
-              name: `${firstName.current.value} ${lastName.current.value}`,
-              accountType: accounts.current.value,
-            }),
-          })
-            .then((_) => _.json())
-            .then((createdUser) => {
-              if (createdUser.hasOwnProperty("id")) {
-                localStorage.setItem("ly_customer", createdUser.id);
-              }
-            });
-        } else {
-          if (accounts.current.value === "Business")
-            fetch("http://localhost:9001/businesses", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                email: email.current.value,
-                password: password.current.value,
-                name: `${firstName.current.value} ${lastName.current.value}`,
-                accountType: accounts.current.value,
-              }),
-            })
-              .then((_) => _.json())
-              .then((createdUser) => {
-                if (createdUser.hasOwnProperty("id")) {
-                  localStorage.setItem("ly_business", createdUser.id);
-                }
-              });
-        }
+        fetch("http://localhost:9001/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email.current.value,
+            password: password.current.value,
+            name: `${firstName.current.value} ${lastName.current.value}`,
+            accountType: accounts.current.value,
+          }),
+        })
+          .then((_) => _.json())
+          .then((createdUser) => {
+            if (createdUser.hasOwnProperty("id")) {
+              localStorage.setItem("ly_user", createdUser.id);
+            }
+          });
       });
     } else {
       window.alert("Passwords do not match");
@@ -90,7 +68,7 @@ const Register = (props) => {
       </Button>
       <Modal isOpen={modal} toggle={toggle} className="regButton">
         <ModalHeader toggle={toggle}></ModalHeader>
-        
+
         <ModalBody>
           <main className="container--login">
             <form className="form--register" onSubmit={handleRegister}>

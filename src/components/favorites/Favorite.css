@@ -1,0 +1,14 @@
+.favorite {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 20em;
+    padding: 2em;
+    border: 1px solid black;
+}
+
+.favoritesContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
