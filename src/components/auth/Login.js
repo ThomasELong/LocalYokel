@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
-import "./Login.css";
-import Register from "./Register";
+import { Button } from "reactstrap";
+import "./Login.css"
+
 
 const Login = ({toggle}) => {
   const email = useRef();
@@ -9,6 +10,7 @@ const Login = ({toggle}) => {
 
   const existingUserCheck = () => {
       return fetch(`http://localhost:9001/users?email=${email.current.value}`)
+       
       .then((res) => res.json())
       .then((user) => {
         if (user.length) {
@@ -20,12 +22,11 @@ const Login = ({toggle}) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
     existingUserCheck().then((exists) => {
       
       if (exists && exists.password === password.current.value) {
         localStorage.setItem("ly_user", exists.id);
-        toggle();
+        toggle(); 
       } else if (exists && exists.password !== password.current.value) {
         window.alert("Password does not match");
       } else if (!exists) {
@@ -35,9 +36,7 @@ const Login = ({toggle}) => {
   };
 
   return (
-    <main className="container--login">
-      <form className="form--login" >
-        <div onSubmit={handleLogin}>
+      <form className="form--login" onSubmit={handleLogin}>
           <h2>Please sign in</h2>
           <fieldset>
             <label htmlFor="inputEmail"> Email address </label>
@@ -62,13 +61,10 @@ const Login = ({toggle}) => {
               required
             />
           </fieldset>
-          <button type="submit">Sign in</button>
-        </div>
-        <fieldset>
-        <Register toggle={toggle} />
-        </fieldset>
+          <Button color="link" type="submit">
+                Submit
+          </Button>
       </form>
-    </main>
   );
 };
 

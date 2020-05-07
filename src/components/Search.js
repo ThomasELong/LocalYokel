@@ -3,7 +3,6 @@
 
 
 import React, { useRef } from "react"
-import { Button } from "reactstrap"
 
 export const SearchBar = ({ setTerms }) => {
 
@@ -23,9 +22,6 @@ export const SearchBar = ({ setTerms }) => {
                     className="form-control"
                 />
             </div>
-        </fieldset>
-        <fieldset>
-            <Button className="addFavorite">Add Favorite</Button>
         </fieldset>
         </>
     )

@@ -1,5 +1,4 @@
 import React, { useRef, useContext, useState } from "react";
-import "./Login.css";
 import { AccountContext } from "../accounts/AccountProvider";
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 
@@ -39,16 +38,12 @@ const Register = (props) => {
             accountType: accounts.current.value,
           }),
         })
-          .then((_) => _.json())
-          .then((createdUser) => {
-            if (createdUser.hasOwnProperty("id")) {
-              localStorage.setItem("ly_user", createdUser.id);
-            }
-          });
+          .then((_) => _.json())  
       });
     } else {
       window.alert("Passwords do not match");
-    }
+    };
+    toggle();
   };
 
   const [modal, setModal] = useState(false);
@@ -56,9 +51,9 @@ const Register = (props) => {
   const toggle = () => setModal(!modal);
 
   return (
-    <div>
+    <div className="button--register">
       <Button
-        color="danger"
+        color="link"
         onClick={(event) => {
           event.preventDefault();
           toggle();
@@ -144,7 +139,7 @@ const Register = (props) => {
                   ))}
                 </select>
               </fieldset>
-              <Button color="primary" type="submit">
+              <Button color="link" type="submit">
                 Submit
               </Button>
             </form>

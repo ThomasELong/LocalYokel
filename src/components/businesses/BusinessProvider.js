@@ -20,7 +20,7 @@ export const BusinessProvider = (props) => {
     const [searchTerm, setSearchTerm] = useState("")
 
     const getBusinesses = () => {
-        return fetch("http://localhost:9001/businesses")
+        return fetch("http://localhost:9001/businessInfo")
             .then(response => response.json())
             .then(setBusinesses)
     }
@@ -36,18 +36,13 @@ export const BusinessProvider = (props) => {
             .then(getBusinesses)
     }
 
-    const removeBusiness = businessId => {
-        return fetch(`http://localhost:8088/businesses/${favoriteId}`, {
-            method: "DELETE"
-        }) .then(getBusinesses)
-    }
 
     /*
         Load all animals when the component is mounted. Ensure
         that an empty array is the second argument to avoid infinite loop.
     */
    useEffect(() => {
-       getBusiness()
+       getBusinesses()
         }, [])
 
 
@@ -60,7 +55,6 @@ export const BusinessProvider = (props) => {
             setSearchTerm, 
             searchTerm, 
             setBusinesses, 
-            removeBusiness
         }}>
             {props.children}
         </BusinessContext.Provider>

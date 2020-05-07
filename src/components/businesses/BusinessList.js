@@ -12,7 +12,7 @@ export default () => {
             <h2 className="businessTitle">Your Favorites</h2>
             <div>
                 {
-                    businesses.map(bus => <Favorites key={bus.id} favorites={bus} />
+                    businesses.map(bus => <Businesses key={bus.id} businesses={bus} />
                     )
                 }
             </div>

@@ -3,16 +3,16 @@
 import React from "react";
 import CustomerDashboard from "./dashboard/Dashboard";
 import "./favorites/Favorite.css"
+import "./auth/Login.css"
+import "./dashboard/Dashboard.css"
 
 
 export const MainPage = () => {
 
   
     return (
-        <div className="mainContainer">
             <div className="searchContainer">
                 <CustomerDashboard/>
             </div>
-        </div>
     )
 }

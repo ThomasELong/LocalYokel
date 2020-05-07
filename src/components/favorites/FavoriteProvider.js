@@ -11,10 +11,6 @@ export const FavoriteContext = React.createContext()
 
 
 
-/*
-    This component establishes what data can be used.
-*/
-
 export const FavoriteProvider = (props) => {
     const [favorites, setFavorites] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
@@ -25,13 +21,13 @@ export const FavoriteProvider = (props) => {
             .then(setFavorites)
     }
 
-    const addFavorite = favorite => {
+    const addFavorite = business => {
         return fetch("http://localhost:9001/customerFavorites", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(favorite)
+            body: JSON.stringify(business)
         })
             .then(getFavorites)
     }
@@ -49,6 +45,7 @@ export const FavoriteProvider = (props) => {
    useEffect(() => {
        getFavorites()
         }, [])
+  
 
 
 
