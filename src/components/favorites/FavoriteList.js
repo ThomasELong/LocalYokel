@@ -6,7 +6,7 @@ import Favorites from "../favorites/Favorite"
 
 
 export default () => {
-    const { favorites } = useContext(FavoriteContext)
+    const { favorite } = useContext(FavoriteContext)
     
     return (
         <>
@@ -14,10 +14,11 @@ export default () => {
             <h2 className="favoriteTitle">Your Favorites</h2>
             <div>
                 {
-                    favorites.map(fav => <Favorites  key={fav.id} favorites={fav} />
+                    favorite.map(fav => <Favorites  key={fav.id} favorites={fav} />
                     )
                 }
             </div>
+            
         </div>
         </>
     )

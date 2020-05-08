@@ -26,7 +26,7 @@ export const BusinessProvider = (props) => {
     }
 
     const addBusiness = business => {
-        return fetch("http://localhost:9001/customerFavorites", {
+        return fetch("http://localhost:9001/businessInfo", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

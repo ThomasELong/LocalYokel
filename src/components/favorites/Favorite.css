@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 20em;
     padding: 2em;
     border: 1px solid black;
 }
@@ -11,5 +10,15 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    width: 40rem;
     border: 1px solid black
+}
+
+.button__delete {
+    width: min-content;
+}
+
+.favorite {
+    justify-content: center;
+    
 }

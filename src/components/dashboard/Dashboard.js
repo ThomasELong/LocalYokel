@@ -13,7 +13,7 @@ export default () => {
 
   return (
     <div className="dashboardContainer">
-      <div className="searchContainer">
+      <div>
         <FavoriteProvider>
           <BusinessProvider>
             <SearchBar setTerms={setTerms} />

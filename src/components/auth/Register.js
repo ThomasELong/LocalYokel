@@ -35,7 +35,7 @@ const Register = (props) => {
             email: email.current.value,
             password: password.current.value,
             name: `${firstName.current.value} ${lastName.current.value}`,
-            accountType: accounts.current.value,
+            accountTypeId: accounts.current.value,
           }),
         })
           .then((_) => _.json())  
@@ -133,7 +133,7 @@ const Register = (props) => {
                   className="form-control"
                 >
                   {accounts.map((e) => (
-                    <option key={e.id} value={e.accountTypeId}>
+                    <option key={e.id} value={e.id}>
                       {e.type}
                     </option>
                   ))}

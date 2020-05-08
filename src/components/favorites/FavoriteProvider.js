@@ -12,7 +12,7 @@ export const FavoriteContext = React.createContext()
 
 
 export const FavoriteProvider = (props) => {
-    const [favorites, setFavorites] = useState([])
+    const [favorite, setFavorites] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
 
     const getFavorites = () => {
@@ -32,8 +32,8 @@ export const FavoriteProvider = (props) => {
             .then(getFavorites)
     }
 
-    const removeFavorite = favoriteId => {
-        return fetch(`http://localhost:8088/customerFavorites/${favoriteId}`, {
+    const removeFavorite = favorite => {
+        return fetch(`http://localhost:9001/customerFavorites/${favorite}`, {
             method: "DELETE"
         }) .then(getFavorites)
     }
@@ -52,7 +52,7 @@ export const FavoriteProvider = (props) => {
         // This exports these functions
    return (
         <FavoriteContext.Provider value={{
-            favorites, 
+            favorite, 
             addFavorite, 
             setSearchTerm, 
             searchTerm, 

@@ -25,7 +25,8 @@ const Login = ({toggle}) => {
     existingUserCheck().then((exists) => {
       
       if (exists && exists.password === password.current.value) {
-        localStorage.setItem("ly_user", exists.id);
+        sessionStorage.setItem("ly_user", exists.id);
+        sessionStorage.setItem("accountType", exists.accountTypeId);
         toggle(); 
       } else if (exists && exists.password !== password.current.value) {
         window.alert("Password does not match");
@@ -62,7 +63,7 @@ const Login = ({toggle}) => {
             />
           </fieldset>
           <Button color="link" type="submit">
-                Submit
+                Login
           </Button>
       </form>
   );
