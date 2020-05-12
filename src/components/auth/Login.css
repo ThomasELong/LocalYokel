@@ -1,0 +1,38 @@
+.welcome {
+    display: flex;
+    justify-content: center;
+    background-color: lightgreen;
+}
+
+.authContainer {
+    display: flex;
+    justify-content: center;
+    background-color: lightgreen;
+
+}
+
+.form--login {
+    width: 17em;
+}
+
+#root {
+    display: inline;
+    position: relative;
+    top: 80px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

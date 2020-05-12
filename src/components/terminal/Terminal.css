@@ -1,0 +1,13 @@
+.addBusinessForm {
+    margin: 1em;
+}
+
+.addBusinessForm--Title {
+    display: flex;
+    justify-content: center;
+}
+
+.businessFormNote {
+    border: 1px solid black;
+}
+

@@ -1,0 +1,95 @@
+.searchContainer {
+    text-align: center;
+}
+
+.resultsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.singleSearchResult {
+    border: 1px solid black;
+    margin: 1em;
+    text-align: center;
+    width: max-content;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-size: 25pt;
+}
+
+.infoContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.searchBar {
+    width: inherit;
+}
+
+.customerContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 1em;
+}
+
+.favoritesContainer {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    align-content: center;
+}
+
+.favoriteItem {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    padding: 1em;
+    margin: 1em 0;
+    width: inherit;
+    border: 1px solid black;
+}
+
+.button__favorites {
+    margin: .25em;
+    width: min-content;
+}
+
+.favoritesTitle {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-body {
+    justify-content: center;
+}
+
+.modal-content {
+    justify-content: center;
+    width: fit-content;
+}
+
+.addToFavorites-button {
+    width: max-content;
+}
+
+.modal-title {
+    font-weight: bolder;
+}
+
+.button__logout {
+    margin: 1em;
+}
+
+.favorite__note {
+    border: 1px solid black;
+}
+
