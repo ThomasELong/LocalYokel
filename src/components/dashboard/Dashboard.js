@@ -4,6 +4,7 @@ import FavoritesList from "../favorites/FavoriteList";
 import { SearchBar } from "../Search";
 import { SearchResults } from "../SearchResults";
 import { BusinessProvider } from "../businesses/BusinessProvider";
+import { CustomerNotesProvider } from "../notes/CustomerNotesProvider"
 import "../auth/Login.css";
 import { Button } from "reactstrap";
 
@@ -35,7 +36,9 @@ export default (toggle) => {
                 <SearchResults searchTerms={searchTerms} />
               </div>
               <div>
+                <CustomerNotesProvider>
                 <FavoritesList />
+                </CustomerNotesProvider>
               </div>
 
           </BusinessProvider>

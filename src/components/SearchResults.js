@@ -15,8 +15,7 @@ export const SearchResults = ({ searchTerms }) => {
   const toggle = () => setModal(!modal);
 
   const addToFavorites = () => {
-    const userId = parseInt(localStorage.getItem("ly_user"));
-
+    const userId = parseInt(sessionStorage.getItem("ly_user"));
     const newFavorite = {
       ...selectedBusiness.business,
       customerId: userId,

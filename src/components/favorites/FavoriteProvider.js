@@ -38,10 +38,6 @@ export const FavoriteProvider = (props) => {
         }) .then(getFavorites)
     }
 
-    /*
-        Load all animals when the component is mounted. Ensure
-        that an empty array is the second argument to avoid infinite loop.
-    */
    useEffect(() => {
        getFavorites()
         }, [])
