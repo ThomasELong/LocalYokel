@@ -32,8 +32,8 @@ export const FavoriteProvider = (props) => {
             .then(getFavorites)
     }
 
-    const removeFavorite = favorite => {
-        return fetch(`http://localhost:9001/customerFavorites/${favorite}`, {
+    const removeFavorite = favorites => {
+        return fetch(`http://localhost:9001/customerFavorites/${favorites}`, {
             method: "DELETE"
         }) .then(getFavorites)
     }

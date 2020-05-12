@@ -10,7 +10,6 @@ export default ({toggle}) => {
     const hours = useRef()
     const facebook = useRef()
     const website = useRef()
-    const note = useRef()
 
     const createNewBusiness = () => {
         const userId = parseInt(sessionStorage.getItem("ly_user"))
@@ -22,7 +21,6 @@ export default ({toggle}) => {
             hours: hours.current.value,
             facebook: facebook.current.value,
             website: website.current.value,
-            notes: note.current.value,
             userId: userId
         }
         addBusiness(newBusiness)
@@ -113,20 +111,6 @@ export default ({toggle}) => {
                         autoFocus
                         className="form-control"
                         placeholder="Facebook"
-                        />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="newBusinessNote">Note: </label>
-                    <input
-                        type="text"
-                        id="newBusinessNote"
-                        ref={note}
-                        required
-                        autoFocus
-                        className="form-control"
-                        placeholder="Add a Note"
                         />
                 </div>
             </fieldset>
