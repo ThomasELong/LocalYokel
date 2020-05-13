@@ -2,11 +2,10 @@ import React, { useContext, useState } from "react"
 import { BusinessContext } from "./BusinessProvider"
 
 
-export const BusinessEditForm = ({ toggleEdit }) => {
+export const BusinessEditForm = ({ toggleEdit, currentBusinessObject }) => {
     const { updateBusiness } = useContext(BusinessContext)
 
-    // Separate state variable to track the animal as it is edited
-    const [ updatedBusinessInfo, setBusinessInfo ] = useState()
+    const [ updatedBusinessInfo, setBusinessInfo ] = useState(currentBusinessObject)
 
     /*
         When changing a state object or array, always create a new one
@@ -21,6 +20,7 @@ export const BusinessEditForm = ({ toggleEdit }) => {
     const editBusinessInfo = () => {
 
             updateBusiness({
+                id: currentBusinessObject.id,
                 name: updatedBusinessInfo.name,
                 phone: updatedBusinessInfo.phone,
                 address: updatedBusinessInfo.address,
@@ -28,13 +28,11 @@ export const BusinessEditForm = ({ toggleEdit }) => {
                 facebook: updatedBusinessInfo.facebook,
                 website: updatedBusinessInfo.website,
                 notes: updatedBusinessInfo.notes,
-                businessUserId: parseInt(localStorage.getItem("ly_user"))
+                businessUserId: parseInt(sessionStorage.getItem("ly_user"))
             })
                 .then(toggleEdit)
-        }
-        debugger
-    
-
+            }
+        
     return (
         <form className="editBusinessForm">
             <fieldset>
@@ -42,6 +40,7 @@ export const BusinessEditForm = ({ toggleEdit }) => {
                     <label htmlFor="name">Name: </label>
                     <input type="text" name="name" required autoFocus className="form-control"
                         placeholder="Business Name"
+                        defaultValue={currentBusinessObject.name}
                         onChange={handleControlledInputChange}
                     />
                 </div>
@@ -50,7 +49,8 @@ export const BusinessEditForm = ({ toggleEdit }) => {
                 <div className="form-group">
                     <label htmlFor="phone">Phone: </label>
                     <input type="text" name="phone" required className="form-control"
-                        placeholder="Phone"
+                        placeholder={currentBusinessObject.phone}
+                        defaultValue={currentBusinessObject.phone}
                         onChange={handleControlledInputChange}
                     />
                 </div>
@@ -59,6 +59,7 @@ export const BusinessEditForm = ({ toggleEdit }) => {
                 <div className="form-group">
                     <label htmlFor="address">Address: </label>
                     <input type="text" name="address" required autoFocus className="form-control"
+                        defaultValue={currentBusinessObject.address}
                         placeholder="Address"
                         onChange={handleControlledInputChange}
                     />
@@ -68,6 +69,7 @@ export const BusinessEditForm = ({ toggleEdit }) => {
                 <div className="form-group">
                     <label htmlFor="hours">Hours: </label>
                     <input type="text" name="hours" required autoFocus className="form-control"
+                        defaultValue={currentBusinessObject.hours}
                         placeholder="Hours"
                         onChange={handleControlledInputChange}
                     />
@@ -77,6 +79,7 @@ export const BusinessEditForm = ({ toggleEdit }) => {
                 <div className="form-group">
                     <label htmlFor="facebook">Facebook: </label>
                     <input type="text" name="facebook" required autoFocus className="form-control"
+                        defaultValue={currentBusinessObject.facebook}
                         placeholder="Facebook"
                         onChange={handleControlledInputChange}
                     />
@@ -86,6 +89,7 @@ export const BusinessEditForm = ({ toggleEdit }) => {
                 <div className="form-group">
                     <label htmlFor="website">Website: </label>
                     <input type="text" name="website" required autoFocus className="form-control"
+                        defaultValue={currentBusinessObject.website}
                         placeholder="Website"
                         onChange={handleControlledInputChange}
                     />
@@ -95,6 +99,7 @@ export const BusinessEditForm = ({ toggleEdit }) => {
                 <div className="form-group">
                     <label htmlFor="notes">Note: </label>
                     <input type="text" name="notes" required autoFocus className="form-control"
+                        defaultValue={currentBusinessObject.notes}
                         placeholder="Note"
                         onChange={handleControlledInputChange}
                     />

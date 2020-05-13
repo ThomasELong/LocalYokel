@@ -18,24 +18,24 @@ export default () => {
         setCurrentBusiness(businessInfo);
       });
   };
+
   useEffect(() => {
     existingBusinessInfoCheck();
   }, []);
 
+  const currentBusinessObject = currentBusiness[0]
   const [editModal, setEditModal] = useState(false);
   const toggleEdit = () => setEditModal(!editModal);
-
   const newBusiness = currentBusiness.map((bus) => {
     return (
       <div className="newBusiness">
         <div>
           <Business business={bus} />
         </div>
-        
       </div>
     );
   });
-
+  
   return (
     <>
       <div className="terminalContainer">
@@ -62,10 +62,9 @@ export default () => {
           event.preventDefault();
           toggleEdit();
         }}
-      >
-        Edit
-      </Button>
+      >Edit</Button>
           </div>
+          
           <div>
           <Modal isOpen={editModal} toggle={toggleEdit}>
             <ModalHeader toggle={toggleEdit}>
@@ -74,8 +73,9 @@ export default () => {
             <ModalBody>
               <BusinessProvider>
               <BusinessEditForm
-                key={newBusiness.id}
+                key={currentBusinessObject.id}
                 toggleEdit={toggleEdit}
+                currentBusinessObject={currentBusinessObject}
                 {...newBusiness}
               />
               </BusinessProvider>
@@ -93,3 +93,4 @@ export default () => {
     </>
   );
 };
+
