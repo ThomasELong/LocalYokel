@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react"
 import { BusinessContext } from "./BusinessProvider"
 
 
-export const BusinessEditForm = ({ businessDetail, toggleEdit }) => {
+export const BusinessEditForm = ({ toggleEdit }) => {
     const { updateBusiness } = useContext(BusinessContext)
 
     // Separate state variable to track the animal as it is edited
-    const [ updatedBusinessInfo, setBusinessInfo ] = useState(businessDetail)
+    const [ updatedBusinessInfo, setBusinessInfo ] = useState()
 
     /*
         When changing a state object or array, always create a new one
@@ -21,7 +21,6 @@ export const BusinessEditForm = ({ businessDetail, toggleEdit }) => {
     const editBusinessInfo = () => {
 
             updateBusiness({
-                id: updatedBusinessInfo.id,
                 name: updatedBusinessInfo.name,
                 phone: updatedBusinessInfo.phone,
                 address: updatedBusinessInfo.address,
@@ -33,6 +32,7 @@ export const BusinessEditForm = ({ businessDetail, toggleEdit }) => {
             })
                 .then(toggleEdit)
         }
+        debugger
     
 
     return (
@@ -42,67 +42,60 @@ export const BusinessEditForm = ({ businessDetail, toggleEdit }) => {
                     <label htmlFor="name">Name: </label>
                     <input type="text" name="name" required autoFocus className="form-control"
                         placeholder="Business Name"
-                        defaultValue={businessDetail.name}
                         onChange={handleControlledInputChange}
                     />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="breed">Phone: </label>
-                    <input type="text" name="breed" required className="form-control"
-                        placeholder="Animal breed"
-                        defaultValue={businessDetail.phone}
+                    <label htmlFor="phone">Phone: </label>
+                    <input type="text" name="phone" required className="form-control"
+                        placeholder="Phone"
                         onChange={handleControlledInputChange}
                     />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Address: </label>
-                    <input type="text" name="name" required autoFocus className="form-control"
-                        placeholder="Business Name"
-                        defaultValue={businessDetail.address}
+                    <label htmlFor="address">Address: </label>
+                    <input type="text" name="address" required autoFocus className="form-control"
+                        placeholder="Address"
                         onChange={handleControlledInputChange}
                     />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Hours: </label>
-                    <input type="text" name="name" required autoFocus className="form-control"
-                        placeholder="Business Name"
-                        defaultValue={businessDetail.hours}
+                    <label htmlFor="hours">Hours: </label>
+                    <input type="text" name="hours" required autoFocus className="form-control"
+                        placeholder="Hours"
                         onChange={handleControlledInputChange}
                     />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Facebook: </label>
-                    <input type="text" name="name" required autoFocus className="form-control"
-                        placeholder="Business Name"
-                        defaultValue={businessDetail.facebook}
+                    <label htmlFor="facebook">Facebook: </label>
+                    <input type="text" name="facebook" required autoFocus className="form-control"
+                        placeholder="Facebook"
                         onChange={handleControlledInputChange}
                     />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Website: </label>
-                    <input type="text" name="name" required autoFocus className="form-control"
-                        placeholder="Business Name"
-                        defaultValue={businessDetail.website}
+                    <label htmlFor="website">Website: </label>
+                    <input type="text" name="website" required autoFocus className="form-control"
+                        placeholder="Website"
                         onChange={handleControlledInputChange}
                     />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Note: </label>
-                    <input type="text" name="name" required autoFocus className="form-control"
-                        placeholder="Business Name"
-                        defaultValue={businessDetail.notes}
+                    <label htmlFor="notes">Note: </label>
+                    <input type="text" name="notes" required autoFocus className="form-control"
+                        placeholder="Note"
                         onChange={handleControlledInputChange}
                     />
                 </div>

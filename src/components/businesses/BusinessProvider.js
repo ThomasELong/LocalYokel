@@ -37,7 +37,7 @@ export const BusinessProvider = (props) => {
     }
 
     const updateBusiness = business => {
-        return fetch(`http://localhost:9001/businessInfo"${businesses.id}`, {
+        return fetch(`http://localhost:9001/businessInfo/${businesses.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

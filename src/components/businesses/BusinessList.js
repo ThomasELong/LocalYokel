@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { BusinessContext } from "./BusinessProvider";
 import Businesses from "../businesses/Business";
-import BusinessForm from "./BusinessForm";
 
 export default () => {
   const { businesses } = useContext(BusinessContext);
