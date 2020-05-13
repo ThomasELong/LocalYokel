@@ -1,15 +1,13 @@
-import React from "react"
+import React from "react";
 
-
-export default ({business}) => (
-    <section className="favorite">
-        
-        <h3 className="favorite__name">{business.name}</h3>
-        <div className="favorite__hours">{business.hours}</div>
-        <div className="favorite__address">{business.address}</div>
-        <div className="favorite__phone">{business.phone}</div>
-        <div className="favorite__website">{business.website}</div>
-        <div className="favorite__facebook">{business.facebook}</div>
-
-    </section>
-)
+export default ({ business }) => (
+  <section className="businessObject">
+    <h3 className="name">{business.name}</h3>
+    <div className="hours">{business.hours}</div>
+    <div className="address">{business.address}</div>
+    <div className="phone">{business.phone}</div>
+    <div className="website">{business.website}</div>
+    <div className="facebook">{business.facebook}</div>
+    <div className="note">{business.notes}</div>
+  </section>
+);

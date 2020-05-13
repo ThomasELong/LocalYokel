@@ -2,10 +2,14 @@ import React, { useRef } from "react";
 import { Button } from "reactstrap";
 import "./Login.css";
 import Register from "./Register";
+import BusinessForm from "../businesses/BusinessForm";
 
 const Login = ({ toggle }) => {
   const email = useRef();
   const password = useRef();
+
+  const userId = parseInt(sessionStorage.getItem("ly_user"));
+
 
   const existingUserCheck = () => {
     return fetch(`http://localhost:9001/users?email=${email.current.value}`)
@@ -18,8 +22,9 @@ const Login = ({ toggle }) => {
       });
   };
 
+
   const handleLogin = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     existingUserCheck().then((exists) => {
       if (exists && exists.password === password.current.value) {
         sessionStorage.setItem("ly_user", exists.id);

@@ -22,6 +22,7 @@ export default (toggle) => {
           className="button__logout"
           onClick={() => {
             sessionStorage.clear();
+            window.location.reload();
           }}
         >
           Log Out

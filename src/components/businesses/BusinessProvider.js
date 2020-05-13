@@ -36,6 +36,16 @@ export const BusinessProvider = (props) => {
             .then(getBusinesses)
     }
 
+    const updateBusiness = business => {
+        return fetch(`http://localhost:9001/businessInfo"${businesses.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(business)
+        }) .then(getBusinesses)
+    }
+
 
     /*
         Load all animals when the component is mounted. Ensure
@@ -52,6 +62,7 @@ export const BusinessProvider = (props) => {
         <BusinessContext.Provider value={{
             businesses, 
             addBusiness, 
+            updateBusiness,
             setSearchTerm, 
             searchTerm, 
             setBusinesses, 
