@@ -1,24 +1,29 @@
 import React, { useContext, useState } from "react";
 import { FavoriteContext } from "./FavoriteProvider";
 import Favorites from "../favorites/Favorite";
-import CustomerNoteForm from "../notes/CustomerNoteForm";
-import { CustomerNotesProvider, CustomerNotesContext } from "../notes/CustomerNotesProvider";
-import CustomerNote from "../notes/CustomerNote";
+import { BusinessContext } from "../businesses/BusinessProvider";
 
 export default () => {
   const { favorite } = useContext(FavoriteContext);
-  const { customerNotes } = useContext(CustomerNotesContext);
+  const { businesses } = useContext(BusinessContext)
+  const userId = parseInt(sessionStorage.getItem("ly_user"))
+  const mySelectedFavorites = favorite.filter(sF => sF.customerId === userId)
+  
+  const favoritedBusinesses = businesses.filter(bus => mySelectedFavorites.some(mSF => mSF.businessUserId === bus.businessUserId))
 
+  console.log(favoritedBusinesses)
   return (
     <>
       <div className="favorites">
         <h2 className="favoritesTitle">Your Favorites</h2>
         <div className="favoritesContainer">
-          {favorite.map((fav) => (
-              
-            <Favorites key={fav.id} favorites={fav} />
 
-          ))}
+                {
+                    favoritedBusinesses.map(fav => {
+                        return <Favorites key={fav.id} favorites={fav} />
+                      })
+                    
+                    }
         </div>
 
       </div>

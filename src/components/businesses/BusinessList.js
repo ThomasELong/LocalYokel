@@ -1,22 +1,26 @@
-import React, { useContext } from "react"
-import { BusinessContext } from "./BusinessProvider"
-import Businesses from "../businesses/Business"
-
+import React, { useContext } from "react";
+import { BusinessContext } from "./BusinessProvider";
+import Businesses from "../businesses/Business";
 
 export default () => {
-    const { businesses } = useContext(BusinessContext)
+  const { businesses } = useContext(BusinessContext);
+  const userId = parseInt(sessionStorage.getItem("ly_user"));
 
-    return (
-        <>
-        <div className="businessHeader">
-            <h2 className="businessTitle">Your Favorites</h2>
-            <div>
-                {
-                    businesses.map(bus => <Businesses key={bus.id} businesses={bus} />
-                    )
-                }
-            </div>
+
+  const filteredBusiness = businesses.filter(
+    (selectBusiness) => selectBusiness.businessUserId === userId
+  );
+
+  return (
+    <>
+      <div className="favorites">
+        <h2 className="favoritesTitle">Your Business Details</h2>
+        <div className="favoritesContainer">
+          {filteredBusiness.map((bus) => {
+            return <Businesses key={bus.id} business={bus} />;
+          })}
         </div>
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};

@@ -1,5 +1,6 @@
 import React, { useContext, useRef } from "react"
 import { BusinessContext } from "./BusinessProvider"
+import { FormGroup } from "reactstrap"
 
 export default ({toggle}) => {
     const { addBusiness } = useContext(BusinessContext) 
@@ -23,14 +24,15 @@ export default ({toggle}) => {
             facebook: facebook.current.value,
             website: website.current.value,
             notes: note.current.value,
-            userId: userId
+            businessUserId: userId
         }
         addBusiness(newBusiness)
         .then(toggle)
     }
 
     return (
-        <form className="addBusinessForm">
+        <>
+        <FormGroup className="addBusinessForm">
             <h2 className="addBusinessForm--Title">Your Business Details</h2>
             <fieldset>
                 <div className="form-group">
@@ -136,12 +138,14 @@ export default ({toggle}) => {
                     evt => {
                         evt.preventDefault()
                         createNewBusiness()
+                        window.location.reload();
                     }
                 }
                 className="btn btn-primary">
                 Submit Information
             </button>
-        </form>
+        </FormGroup>
+        </>
     )
 
 

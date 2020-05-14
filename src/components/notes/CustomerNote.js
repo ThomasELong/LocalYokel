@@ -14,6 +14,7 @@ export default ({ customerNote }) => {
         <Button
           className="button__favorites"
           color="info"
+          size="sm"
           onClick={() => {
             removeCustomerNote(customerNote.id);
           }}
