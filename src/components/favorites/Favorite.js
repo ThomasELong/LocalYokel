@@ -1,10 +1,7 @@
 import React, { useContext, useState } from "react";
 import { FavoriteContext } from "./FavoriteProvider";
 import { Button } from "reactstrap";
-import {
-  CustomerNotesProvider,
-  CustomerNotesContext,
-} from "../notes/CustomerNotesProvider";
+import { CustomerNotesContext } from "../notes/CustomerNotesProvider";
 import CustomerNoteForm from "../notes/CustomerNoteForm";
 import CustomerNote from "../notes/CustomerNote";
 
@@ -39,6 +36,7 @@ export default ({ favorites }) => {
         <Button
           className="button__favorites"
           color="info"
+          size="sm"
           onClick={() => {
             removeFavorite(favorites.id);
           }}

@@ -6,23 +6,32 @@ import Business from "./businesses/Business";
 
 export const SearchResults = ({ searchTerms }) => {
   const { businesses } = useContext(BusinessContext);
-  const { addFavorite, getFavorites } = useContext(FavoriteContext);
-
+  const { addFavorite } = useContext(FavoriteContext);
   const [filteredBusinesses, setFiltered] = useState([]);
   const [selectedBusiness, setBusiness] = useState({ business: { id: 0 } });
+  const [favoriteBusiness, setNewFavoriteBusiness] = useState(selectedBusiness)
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
   const addToFavorites = () => {
-    const userId = parseInt(sessionStorage.getItem("ly_user"));
+    const userId = parseInt(sessionStorage.getItem("ly_user"))
     const newFavorite = {
-      ...selectedBusiness.business,
-      customerId: userId,
+      
+      name: selectedBusiness.business.name,
+      phone: selectedBusiness.business.phone,
+      address: selectedBusiness.business.address,
+      hours: selectedBusiness.business.hours,
+      facebook: selectedBusiness.business.facebook,
+      website: selectedBusiness.business.website,
+      notes: selectedBusiness.business.notes,
+      businessUserId: selectedBusiness.business.businessUserId,
+      customerId: userId, 
+    }
+    setNewFavoriteBusiness(newFavorite)
+    favoriteBusiness={favoriteBusiness}
     };
-
-    addFavorite(newFavorite);
-  };
+  
 
   useEffect(() => {
     if (searchTerms !== "") {
