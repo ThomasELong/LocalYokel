@@ -9,7 +9,6 @@ export const SearchResults = ({ searchTerms }) => {
   const { addFavorite } = useContext(FavoriteContext);
   const [filteredBusinesses, setFiltered] = useState([]);
   const [selectedBusiness, setBusiness] = useState({ business: { id: 0 } });
-  const [favoriteBusiness, setNewFavoriteBusiness] = useState(selectedBusiness)
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -18,18 +17,12 @@ export const SearchResults = ({ searchTerms }) => {
     const userId = parseInt(sessionStorage.getItem("ly_user"))
     const newFavorite = {
       
-      name: selectedBusiness.business.name,
-      phone: selectedBusiness.business.phone,
-      address: selectedBusiness.business.address,
-      hours: selectedBusiness.business.hours,
-      facebook: selectedBusiness.business.facebook,
-      website: selectedBusiness.business.website,
-      notes: selectedBusiness.business.notes,
-      businessUserId: selectedBusiness.business.businessUserId,
       customerId: userId, 
+      businessUserId: selectedBusiness.business.businessUserId,
     }
-    setNewFavoriteBusiness(newFavorite)
-    favoriteBusiness={favoriteBusiness}
+    
+    addFavorite(newFavorite)
+    
     };
   
 
