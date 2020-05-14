@@ -9,7 +9,9 @@ export default ({ favorites }) => {
   const { removeFavorite } = useContext(FavoriteContext);
   const { customerNotes } = useContext(CustomerNotesContext);
 
-  
+  const filteredNotes = customerNotes.filter(
+    (custNote) => custNote.businessId === favorites.id
+  )
   return (
     <section className="favoriteItem">
       <h3 className="favorite__name">{favorites.name}</h3>
@@ -22,14 +24,11 @@ export default ({ favorites }) => {
       <div className="favorite__note">{favorites.notes}</div>
       <br />
       <div>
-        {customerNotes.map(note => {
-            const filteredNotes = customerNotes.filter(
-              (custNote) => custNote.businessId === favorites.id)
-           console.log(favorites.id)
-          return <CustomerNote customerNote={note} note={filteredNotes}/>
+        {filteredNotes.map(note => {
+
+          return <CustomerNote customerNote={note} />
           
-        })
-        }
+        })}
         <CustomerNoteForm businessObject={favorites} />
       </div>
       <div className="buttonContainer">

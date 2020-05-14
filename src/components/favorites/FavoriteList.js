@@ -6,7 +6,12 @@ import { BusinessContext } from "../businesses/BusinessProvider";
 export default () => {
   const { favorite } = useContext(FavoriteContext);
   const { businesses } = useContext(BusinessContext)
+  const userId = parseInt(sessionStorage.getItem("ly_user"))
+  const mySelectedFavorites = favorite.filter(sF => sF.customerId === userId)
+  
+  const favoritedBusinesses = businesses.filter(bus => mySelectedFavorites.some(mSF => mSF.businessUserId === bus.businessUserId))
 
+  console.log(favoritedBusinesses)
   return (
     <>
       <div className="favorites">
@@ -14,18 +19,11 @@ export default () => {
         <div className="favoritesContainer">
 
                 {
-                    favorite.map(fav => {
-                        const bus = businesses.find(b => b.id === fav.businessUserId)
-                        return <Favorites key={fav.id} business={bus} favorites={fav} />
-                        
-                    })
-                }
-
-
-
-  
-
-          
+                    favoritedBusinesses.map(fav => {
+                        return <Favorites key={fav.id} favorites={fav} />
+                      })
+                    
+                    }
         </div>
 
       </div>

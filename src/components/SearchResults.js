@@ -19,6 +19,7 @@ export const SearchResults = ({ searchTerms }) => {
       
       customerId: userId, 
       businessUserId: selectedBusiness.business.businessUserId,
+      
     }
     
     addFavorite(newFavorite)

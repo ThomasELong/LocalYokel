@@ -49,6 +49,7 @@ export default () => {
           >
             Log Out
           </Button>
+
         </div>
         <div className="title">Local Yokel</div>
         <div>
