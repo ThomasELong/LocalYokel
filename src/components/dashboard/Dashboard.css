@@ -11,7 +11,6 @@
 }
 
 .singleSearchResult {
-    border: 1px solid black;
     margin: 1em;
     text-align: center;
     width: max-content;
@@ -93,3 +92,23 @@
     border: 1px solid black;
 }
 
+.searchCategories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 95%;
+    font-size: auto;
+
+}
+
+.searchOption {
+    width: 8em;
+    height: auto;
+    align-content: center;
+    margin: .5em;
+}
+
+.selections {
+    display: flex;
+    justify-content: center;
+}

@@ -5,6 +5,7 @@ import { Button, Modal, ModalBody, ModalHeader } from "reactstrap";
 import "./Terminal.css";
 import Business from "../businesses/Business";
 import { BusinessEditForm } from "../businesses/BusinessEditForm";
+import { BusinessTypeProvider } from "../businesses/BusinessTypeProvider";
 
 export default () => {
   const userId = parseInt(sessionStorage.getItem("ly_user"));
@@ -72,6 +73,7 @@ export default () => {
               {newBusiness.name}
             </ModalHeader>
             <ModalBody>
+              <BusinessTypeProvider>
               <BusinessProvider>
               <BusinessEditForm
                 key={currentBusinessObject.id}
@@ -80,14 +82,17 @@ export default () => {
                 {...newBusiness}
               />
               </BusinessProvider>
+              </BusinessTypeProvider>
             </ModalBody>
           </Modal>{" "}
         </div>
           </>
         ) : (
+          <BusinessTypeProvider>
             <BusinessProvider>
               <BusinessForm />
             </BusinessProvider>
+            </BusinessTypeProvider>
           )}
         </div>
       </div>

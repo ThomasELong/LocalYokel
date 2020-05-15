@@ -11,7 +11,6 @@ export default () => {
   
   const favoritedBusinesses = businesses.filter(bus => mySelectedFavorites.some(mSF => mSF.businessUserId === bus.businessUserId))
 
-  console.log(favoritedBusinesses)
   return (
     <>
       <div className="favorites">

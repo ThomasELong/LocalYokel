@@ -9,5 +9,6 @@ export default ({ business }) => (
     <div className="website">{business.website}</div>
     <div className="facebook">{business.facebook}</div>
     <div className="note">{business.notes}</div>
+    <div className="type">{business.businessTypes}</div>
   </section>
 );

@@ -1,10 +1,11 @@
 import React, { useContext, useRef } from "react"
 import { BusinessContext } from "./BusinessProvider"
 import { FormGroup } from "reactstrap"
+import { BusinessTypeContext } from "./BusinessTypeProvider"
 
 export default ({toggle}) => {
-    const { addBusiness } = useContext(BusinessContext) 
-
+    const { addBusiness } = useContext(BusinessContext)
+    
     const name = useRef()
     const phone = useRef()
     const address = useRef()
@@ -12,6 +13,7 @@ export default ({toggle}) => {
     const facebook = useRef()
     const website = useRef()
     const note = useRef()
+    const { businessTypes } = useContext(BusinessTypeContext)
 
     const createNewBusiness = () => {
         const userId = parseInt(sessionStorage.getItem("ly_user"))
@@ -24,6 +26,7 @@ export default ({toggle}) => {
             facebook: facebook.current.value,
             website: website.current.value,
             notes: note.current.value,
+            businessTypeId: businessTypes.current.value,
             businessUserId: userId
         }
         addBusiness(newBusiness)
@@ -132,6 +135,25 @@ export default ({toggle}) => {
                         />
                 </div>
             </fieldset>
+            <fieldset>
+                <label htmlFor="businessType">Business Type</label>
+                <select
+                  defaultValue=""
+                  name="businessType"
+                  ref={businessTypes}
+                  id="businessType"
+                  className="form-control"
+                >
+                    <option>Cafe</option>
+                    <option>Restaurant</option>
+                    <option>Retail</option>
+                    <option>Grocery</option>
+                    <option>Self-Care</option>
+                    <option>Entertainment</option>
+
+                  
+                </select>
+              </fieldset>
             
             <button type="submit"
                 onClick={

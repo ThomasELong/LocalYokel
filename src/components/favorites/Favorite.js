@@ -6,12 +6,14 @@ import CustomerNoteForm from "../notes/CustomerNoteForm";
 import CustomerNote from "../notes/CustomerNote";
 
 export default ({ favorites }) => {
-  const { removeFavorite } = useContext(FavoriteContext);
+  const { favorite, removeFavorite } = useContext(FavoriteContext);
   const { customerNotes } = useContext(CustomerNotesContext);
 
   const filteredNotes = customerNotes.filter(
     (custNote) => custNote.businessId === favorites.id
   )
+  const filteredFavorite = favorite.find(favorite => favorite.businessUserId === favorites.businessUserId) || {}
+
   return (
     <section className="favoriteItem">
       <h3 className="favorite__name">{favorites.name}</h3>
@@ -37,7 +39,7 @@ export default ({ favorites }) => {
           color="info"
           size="sm"
           onClick={() => {
-            removeFavorite(favorites.id);
+            removeFavorite(filteredFavorite.id);
           }}
         >
           Delete

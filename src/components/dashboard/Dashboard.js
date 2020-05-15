@@ -9,11 +9,9 @@ import "../auth/Login.css";
 import { Button } from "reactstrap";
 
 export default (toggle) => {
-  const [searchTerms, setTerms] = useState(null);
+  const [searchTerms, setTerms] = useState(null)
+  const [searchTermsSet, setSearchTerms] = useState("")
 
-  const [activeUser, setActiveUser] = useState(
-    localStorage.getItem("ly_user") || ""
-  );
 
   return (
     <div className="dashboardContainer">
@@ -33,8 +31,8 @@ export default (toggle) => {
         <FavoriteProvider>
           <BusinessProvider>
               <div className="searchBar">
-                <SearchBar setTerms={setTerms} />
-                <SearchResults searchTerms={searchTerms} />
+                <SearchBar setTerms={setTerms} setSearchTerms={setSearchTerms}/>
+                <SearchResults searchTerms={searchTerms} searchTermsSet={searchTermsSet}/>
               </div>
               <div>
                 <CustomerNotesProvider>

@@ -30,9 +30,8 @@ export default ({toggle, businessObject}) => {
                         id="noteText"
                         ref={noteText}
                         required
-                        autoFocus
                         className="form-control"
-                        placeholder="Note Text"
+                        placeholder="Add A Note"
                         />
                 </div>
             </fieldset>

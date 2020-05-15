@@ -1,9 +1,13 @@
 import React, { useContext, useState } from "react"
 import { BusinessContext } from "./BusinessProvider"
+import { BusinessTypeContext } from "./BusinessTypeProvider"
+
 
 
 export const BusinessEditForm = ({ toggleEdit, currentBusinessObject }) => {
     const { updateBusiness } = useContext(BusinessContext)
+    const { businessTypes } = useContext(BusinessTypeContext)
+
 
     const [ updatedBusinessInfo, setBusinessInfo ] = useState(currentBusinessObject)
 
@@ -16,7 +20,6 @@ export const BusinessEditForm = ({ toggleEdit, currentBusinessObject }) => {
         newBusinessInfo[event.target.name] = event.target.value
         setBusinessInfo(newBusinessInfo)
     }
-
     const editBusinessInfo = () => {
 
             updateBusiness({
@@ -28,6 +31,7 @@ export const BusinessEditForm = ({ toggleEdit, currentBusinessObject }) => {
                 facebook: updatedBusinessInfo.facebook,
                 website: updatedBusinessInfo.website,
                 notes: updatedBusinessInfo.notes,
+                businessTypes: updatedBusinessInfo.businessTypes,
                 businessUserId: parseInt(sessionStorage.getItem("ly_user"))
             })
                 .then(toggleEdit)
@@ -95,6 +99,24 @@ export const BusinessEditForm = ({ toggleEdit, currentBusinessObject }) => {
                     />
                 </div>
             </fieldset>
+
+            <fieldset>
+                <label htmlFor="businessType">Business Type</label>
+                <select
+                  defaultValue={currentBusinessObject.businessTypeId}
+                  name="businessType"
+                  ref={businessTypes}
+                  id="businessType"
+                  className="form-control"
+                >
+                  {businessTypes.map((e) => (
+                    <option key={e.id} value={e.id}>
+                      {e.type}
+                    </option>
+                  ))}
+                </select>
+              </fieldset>
+
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="notes">Note: </label>
@@ -106,10 +128,12 @@ export const BusinessEditForm = ({ toggleEdit, currentBusinessObject }) => {
                 </div>
             </fieldset>
             
+            
             <button type="submit" className="btn btn-primary"
                 onClick={evt => {
                     evt.preventDefault()
                     editBusinessInfo()
+                    window.location.reload()
                 }}>
                 Save Updates
             </button>

@@ -8,6 +8,7 @@ export default ({ customerNote }) => {
   return (
     <section className="favoriteItem">
       <div className="custNote--text">{customerNote.noteText}</div>
+      <div className="custNote--timestamp">{new Date(customerNote.timestamp).toLocaleDateString()}</div>
 
       <div className="buttonContainer">
           
