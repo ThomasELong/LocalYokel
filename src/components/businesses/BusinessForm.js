@@ -26,7 +26,7 @@ export default ({toggle}) => {
             facebook: facebook.current.value,
             website: website.current.value,
             notes: note.current.value,
-            businessTypeId: businessTypes.current.value,
+            businessTypes: businessTypes.current.value,
             businessUserId: userId
         }
         addBusiness(newBusiness)

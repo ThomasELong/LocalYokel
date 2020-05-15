@@ -51,8 +51,8 @@ const Register = (props) => {
   const toggle = () => setModal(!modal);
 
   return (
-    <div className="button--register">
-      <Button
+    <div className="Button welcomeButton">
+      <button
         color="link"
         onClick={(event) => {
           event.preventDefault();
@@ -60,12 +60,12 @@ const Register = (props) => {
         }}
       >
         Register
-      </Button>
+      </button>
       <Modal isOpen={modal} toggle={toggle} className="regButton">
         <ModalHeader toggle={toggle}></ModalHeader>
 
         <ModalBody>
-          <main className="container--login">
+          <main className="containerLogin">
             <form className="form--register" onSubmit={handleRegister}>
               <h4 className="darkgray">Registration Form</h4>
               <fieldset>
@@ -139,9 +139,9 @@ const Register = (props) => {
                   ))}
                 </select>
               </fieldset>
-              <Button color="link" type="submit">
+              <button className="Button" type="submit">
                 Submit
-              </Button>
+              </button>
             </form>
           </main>
         </ModalBody>

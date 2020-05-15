@@ -1,13 +1,14 @@
 import React from "react"
 import Login from "./Login"
 import "./Login.css" 
+import Logo from "../images/Local Yokel Logo.png"
 
 export default ({toggle}) => {
     return (
         <>
-            <h1 className="welcome">Local Yokel</h1>
+            <img className="welcomeLogo" src={Logo} alt="Logo"/>
             <div className="authContainer">
-            <div >
+            <div className="loginContainer" >
                     <Login toggle={toggle}/>
                     
             </div>

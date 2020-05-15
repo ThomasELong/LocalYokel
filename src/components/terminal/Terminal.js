@@ -24,74 +24,75 @@ export default () => {
     existingBusinessInfoCheck();
   }, []);
 
-  const currentBusinessObject = currentBusiness[0]
+  const currentBusinessObject = currentBusiness[0];
   const [editModal, setEditModal] = useState(false);
   const toggleEdit = () => setEditModal(!editModal);
   const newBusiness = currentBusiness.map((bus) => {
     return (
-      <div className="newBusiness">
+      <div>
         <div>
           <Business business={bus} />
         </div>
       </div>
     );
   });
-  
+
   return (
     <>
       <div className="terminalContainer">
         <div>
-          <Button
-            className="button__logout"
+          <button
+            className="terminalButton logoutButton"
             onClick={() => {
               sessionStorage.clear();
               window.location.reload();
             }}
           >
             Log Out
-          </Button>
-
+          </button>
         </div>
         <div className="title">Local Yokel</div>
         <div>
           {currentBusiness.length ? (
             <>
-          <div>{newBusiness}</div>
-          <div>
-          <Button
-        color="link"
-        onClick={(event) => {
-          event.preventDefault();
-          toggleEdit();
-        }}
-      >Edit</Button>
-          </div>
-          
-          <div>
-          <Modal isOpen={editModal} toggle={toggleEdit}>
-            <ModalHeader toggle={toggleEdit}>
-              {newBusiness.name}
-            </ModalHeader>
-            <ModalBody>
-              <BusinessTypeProvider>
+              <div className="newBusiness">{newBusiness}
+              
+                <button
+                  className="terminalButton"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    toggleEdit();
+                  }}
+                >
+                  Edit
+                </button>
+              </div>
+
+              <div>
+                <Modal isOpen={editModal} toggle={toggleEdit}>
+                  <ModalHeader toggle={toggleEdit}>
+                    {newBusiness.name}
+                  </ModalHeader>
+                  <ModalBody>
+                    <BusinessTypeProvider>
+                      <BusinessProvider>
+                        <BusinessEditForm
+                          key={currentBusinessObject.id}
+                          toggleEdit={toggleEdit}
+                          currentBusinessObject={currentBusinessObject}
+                          {...newBusiness}
+                        />
+                      </BusinessProvider>
+                    </BusinessTypeProvider>
+                  </ModalBody>
+                </Modal>{" "}
+              </div>
+            </>
+          ) : (
+            <BusinessTypeProvider>
               <BusinessProvider>
-              <BusinessEditForm
-                key={currentBusinessObject.id}
-                toggleEdit={toggleEdit}
-                currentBusinessObject={currentBusinessObject}
-                {...newBusiness}
-              />
+                <BusinessForm />
               </BusinessProvider>
-              </BusinessTypeProvider>
-            </ModalBody>
-          </Modal>{" "}
-        </div>
-          </>
-        ) : (
-          <BusinessTypeProvider>
-            <BusinessProvider>
-              <BusinessForm />
-            </BusinessProvider>
             </BusinessTypeProvider>
           )}
         </div>
@@ -99,4 +100,3 @@ export default () => {
     </>
   );
 };
-

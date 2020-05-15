@@ -12,8 +12,8 @@ export default ({ customerNote }) => {
 
       <div className="buttonContainer">
           
-        <Button
-          className="button__favorites"
+        <button
+          className="Button"
           color="info"
           size="sm"
           onClick={() => {
@@ -21,7 +21,7 @@ export default ({ customerNote }) => {
           }}
         >
           Delete
-        </Button>
+        </button>
 
       </div>
     </section>

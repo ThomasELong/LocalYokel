@@ -13,14 +13,38 @@
 
 .newBusiness {
     display: flex;
+    flex-direction: column;
+    margin: 1em;
+    padding: 1em;
+    height: 29.5em;
     border: 1px solid black;
-    justify-content: center;
+    background-color: #d8e3e5;
+}
+
+.terminalContainer {
+    background-color: 	#7da2a9;
+    height: 80em;
+}
+
+.terminalform-group {
+    margin: .5em;
+}
+
+.terminalButton {
+    width: max-content;
+    background-color: #def2f1 !important;
+}
+
+.logoutButton {
     margin: 1em
 }
 
-.singleBusiness {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
+.businessDetail {
+    margin: .75em;
 }
+
+.title {
+    margin-top: 2em;
+}
+
 

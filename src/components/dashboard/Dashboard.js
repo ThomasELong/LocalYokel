@@ -7,6 +7,8 @@ import { BusinessProvider } from "../businesses/BusinessProvider";
 import { CustomerNotesProvider } from "../notes/CustomerNotesProvider"
 import "../auth/Login.css";
 import { Button } from "reactstrap";
+import Logo from "../images/Local Yokel Logo.png"
+
 
 export default (toggle) => {
   const [searchTerms, setTerms] = useState(null)
@@ -15,8 +17,8 @@ export default (toggle) => {
 
   return (
     <div className="dashboardContainer">
-      <div>
-        <Button
+      <div className="dashboardHeader">
+        <button
           className="button__logout"
           onClick={() => {
             sessionStorage.clear();
@@ -24,9 +26,9 @@ export default (toggle) => {
           }}
         >
           Log Out
-        </Button>
+        </button>
+      <img className="userLogo" src={Logo} alt="Logo"/>
       </div>
-      <div className="title">Local Yokel</div>
       <div className="customerContainer">
         <FavoriteProvider>
           <BusinessProvider>

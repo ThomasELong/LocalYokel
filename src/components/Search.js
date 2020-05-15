@@ -1,6 +1,7 @@
 
 import React, { useRef } from "react"
-import { Button } from "reactstrap"
+import magnifyingGlassLogo from "./images/magnifyingglass.png"
+
 
 export const SearchBar = ({ setTerms, setSearchTerms }) => {
 
@@ -9,63 +10,81 @@ export const SearchBar = ({ setTerms, setSearchTerms }) => {
     return (
         <>
         <fieldset>
-            <div className="form-group">
-                <input onKeyUp={ e => setSearchTerms(e.target.value) }
+            <div className="searchForm-Group">
+                <input onKeyUp={ e => 
+                {
+                setTerms("") 
+                setSearchTerms(e.target.value)
+                } }
+                    type="text"
+                    placeholder="Search"
+                    id="searchTextInput"
+                    ref={terms}
+                    className="form-control"
+                    
+                />
+                <div id='buttonHolder'></div>
+                <button onClick={ e => 
+                {
+                setSearchTerms(null) 
+                setTerms(e.target.value = "Search")
+                } }
                     type="text"
                     id="searchTerms"
                     ref={terms}
-                    className="form-control"
-                />
+                    className="search-button">
+                       <img id="buttonLogo" src={magnifyingGlassLogo}/>
+                    </button>
                 <div className="selections">
                 <div className="searchCategories">
 
-                    <Button onClick={ e => setTerms(e.target.value = "Cafe")}
+                    <button onClick={ e => setTerms(e.target.value = "Cafe")}
                     type="text"
                     id="searchTerms"
                     ref={terms}
                     className="searchOption">
                         Cafe
-                    </Button>
+                    </button>
 
-                    <Button onClick={ e => setTerms(e.target.value = "Restaurant") }
+                    <button onClick={ e => setTerms(e.target.value = "Restaurant") }
                     type="text"
                     id="searchTerms"
                     ref={terms}
                     className="searchOption">
                         Restaurant
-                    </Button>
+                    </button>
 
-                    <Button onClick={ e => setTerms(e.target.value = "Retail") }
+                    <button onClick={ e => setTerms(e.target.value = "Retail") }
                     type="text"
                     id="searchTerms"
                     ref={terms}
                     className="searchOption">
                         Retail
-                    </Button>
+                    </button>
 
-                    <Button onClick={ e => setTerms(e.target.value = "Grocery") }
+                    <button onClick={ e => setTerms(e.target.value = "Grocery") }
                     type="text"
                     id="searchTerms"
                     ref={terms}
                     className="searchOption">
                         Grocery
-                    </Button>
+                    </button>
 
-                    <Button onClick={ e => setTerms(e.target.value = "Entertainment") }
+                    <button onClick={ e => setTerms(e.target.value = "Entertainment") }
                     type="text"
                     id="searchTerms"
                     ref={terms}
                     className="searchOption">
                         Entertainment
-                    </Button>
+                    </button>
 
-                    <Button onClick={ e => setTerms(e.target.value = "Self-Care") }
+                    <button onClick={ e => setTerms(e.target.value = "Self-Care") }
                     type="text"
                     id="searchTerms"
                     ref={terms}
                     className="searchOption">
                         Self-Care
-                    </Button>
+                    </button>
                 </div>
                 </div>
 
