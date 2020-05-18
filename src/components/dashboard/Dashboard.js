@@ -29,12 +29,13 @@ export default (toggle) => {
         </button>
       <img className="userLogo" src={Logo} alt="Logo"/>
       </div>
+      <h2>Dashboard</h2>
       <div className="customerContainer">
         <FavoriteProvider>
           <BusinessProvider>
               <div className="searchBar">
                 <SearchBar setTerms={setTerms} setSearchTerms={setSearchTerms}/>
-                <SearchResults searchTerms={searchTerms} searchTermsSet={searchTermsSet}/>
+                <SearchResults className="searchResultsContainer"searchTerms={searchTerms} searchTermsSet={searchTermsSet}/>
               </div>
               <div>
                 <CustomerNotesProvider>

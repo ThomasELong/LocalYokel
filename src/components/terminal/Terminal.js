@@ -6,6 +6,8 @@ import "./Terminal.css";
 import Business from "../businesses/Business";
 import { BusinessEditForm } from "../businesses/BusinessEditForm";
 import { BusinessTypeProvider } from "../businesses/BusinessTypeProvider";
+import Logo from "../images/Local Yokel Logo.png"
+
 
 export default () => {
   const userId = parseInt(sessionStorage.getItem("ly_user"));
@@ -25,8 +27,11 @@ export default () => {
   }, []);
 
   const currentBusinessObject = currentBusiness[0];
+  const [newBusModal, setNewBusModal] = useState(false);
+  const toggleNewBus = () => setNewBusModal(!newBusModal);
   const [editModal, setEditModal] = useState(false);
   const toggleEdit = () => setEditModal(!editModal);
+
   const newBusiness = currentBusiness.map((bus) => {
     return (
       <div>
@@ -51,7 +56,7 @@ export default () => {
             Log Out
           </button>
         </div>
-        <div className="title">Local Yokel</div>
+        <img className="userLogo" src={Logo} alt="Logo"/>
         <div>
           {currentBusiness.length ? (
             <>

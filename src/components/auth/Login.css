@@ -20,6 +20,11 @@
     width: 17em;
 }
 
+.form--register {
+    width: 75%;
+    margin-top: .75em;
+}
+
 #root {
     display: inline;
     position: relative;
@@ -27,11 +32,9 @@
 
 Button {
     display: inline-block;
-    border: none;
-    margin: 0;
-    text-decoration: none;
     background: #def2f1;
     color: #536c71;
+    box-shadow: 1px 2px #a4bdc2;
     font-size: 1rem;
     cursor: pointer;
     text-align: center;
@@ -54,6 +57,10 @@ Button:focus {
 
 Button:active {
     transform: scale(0.99);
+}
+
+.registerButton {
+    margin-top: 1em;
 }
 
 .containerLogin {

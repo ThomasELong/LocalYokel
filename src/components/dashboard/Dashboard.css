@@ -5,19 +5,35 @@
     display: block;
     max-width: 35%;
     height: auto;
-    background-color: #ffffff;
-    margin: 1em
+    margin: 1em;
+    justify-content: right;
+}
+
+.searchLogo {
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    justify-content: center;
 }
 .dashboardContainer {
     background-color: #ffffff;
     font-family: 'Montserrat', sans-serif;
     color: #536c71;
+    width: 100%;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 2.75em;
 }
 
 .dashboardHeader {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    position: fixed;
+    background-color: white;
 }
 
 .searchForm-Group {
@@ -78,6 +94,8 @@
     margin: 1em 0;
     width: inherit;
     background-color: #def2f1;
+    box-shadow: 3px 4px #a4bdc2;
+
 }
 
 .notesForm {
@@ -94,23 +112,10 @@
     margin: 1em;
 }
 
-.deleteButton {
-    display: inline-block;
-    border: 1px solid #2a3638;
-    padding: 1em 3em 1em 3em;
-    background: #def2f1;
-    color: #536c71;
-    font-size: 1rem;
-    text-align: center;
-    transition: background 250ms ease-in-out, 
-                transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-}
-
 .favoritesTitle {
     display: flex;
     justify-content: center;
+    font-size: 2em;
     margin-top: 1em;
 }
 
@@ -120,8 +125,7 @@
 
 .modal-body {
     justify-content: center;
-    background-color: #def2f1;
-
+    border-top: #daa520;
 }
 
 .modal-content {
@@ -142,45 +146,38 @@
     height: 75%
 }
 
+.favorite__name {
+    border: 1.5px solid #7da2a9;
+    border-radius: 10%;
+    padding: .25em 0 .25em 0;
+}
+
 .favorite__note {
-    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    font-size: 1.25em;
+    width: 100%;
 }
 
 .searchCategories {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 95%;
-    font-size: auto;
-    border: .25em solid #a4bdc2;
-    margin: .5em;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: .5em;
 
 }
 
 .searchOption {
-    width: 8em;
+    width: 2.75em;
     height: auto;
-    align-content: center;
-    margin: 0em;
-}
-
-.selections {
-    display: flex;
     justify-content: center;
-}
-
-.search-button {
-    width: "1em";
-    display: flex;
-    align-content: center;
-}
-
-
-#buttonLogo {
-    width: 8%;
-    height: auto;
+    margin: .25em;
+    border: 1px solid #d8e3e5;
 }
 
 .favoriteDetail {
+    display: block;
+    justify-content: center;
     border-bottom: 2px solid #daa520;
 }
+

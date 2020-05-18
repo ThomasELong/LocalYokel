@@ -47,7 +47,7 @@ export const SearchResults = ({ searchTerms, searchTermsSet }) => {
   useEffect(() => {
     
     if (searchTermsSet !== "") {
-      
+
       const subsetName = businesses.filter((business) => business.name.toLowerCase().includes(searchTermsSet));
       setFiltered(subsetName);
     } 
@@ -55,9 +55,10 @@ export const SearchResults = ({ searchTerms, searchTermsSet }) => {
       const subsetType = businesses.filter((business) => business.businessTypes.includes(searchTerms)); 
       setFiltered(subsetType);
     } 
-    else {
-      setFiltered([]);
+    else if (searchTermsSet === "" && searchTerms === "") {
+      setFiltered([])
     }
+    else { setFiltered([]) }
   }, [searchTerms, searchTermsSet, businesses]);
 
 console.log(searchTerms)

@@ -75,7 +75,6 @@ const Register = (props) => {
                   type="text"
                   name="firstName"
                   className="form-control"
-                  placeholder="First name"
                   required
                 />
               </fieldset>
@@ -86,7 +85,6 @@ const Register = (props) => {
                   type="text"
                   name="lastName"
                   className="form-control"
-                  placeholder="Last name"
                   required
                 />
               </fieldset>
@@ -97,7 +95,6 @@ const Register = (props) => {
                   type="email"
                   name="email"
                   className="form-control"
-                  placeholder="Email address"
                   required
                 />
               </fieldset>
@@ -108,7 +105,6 @@ const Register = (props) => {
                   type="password"
                   name="password"
                   className="form-control"
-                  placeholder="Password"
                   required
                 />
               </fieldset>
@@ -119,7 +115,6 @@ const Register = (props) => {
                   type="password"
                   name="verifyPassword"
                   className="form-control"
-                  placeholder="Verify password"
                   required
                 />
               </fieldset>
@@ -139,7 +134,7 @@ const Register = (props) => {
                   ))}
                 </select>
               </fieldset>
-              <button className="Button" type="submit">
+              <button className="Button registerButton" type="submit">
                 Submit
               </button>
             </form>

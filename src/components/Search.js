@@ -1,91 +1,101 @@
 
 import React, { useRef } from "react"
-import magnifyingGlassLogo from "./images/magnifyingglass.png"
+import cafeLogo from "./images/cafe.png"
+import entertainmentLogo from "./images/entertainment.png"
+import groceryLogo from "./images/grocery.png"
+import restaurantLogo from "./images/restaurant.png"
+import retailLogo from "./images/retail.png"
+import selfcareLogo from "./images/selfcare.png"
 
 
 export const SearchBar = ({ setTerms, setSearchTerms }) => {
 
-    const { terms } = useRef()
+    const { searchName } = useRef()
+    const { typeCafe } = useRef()
+    const { typeRestaurant } = useRef()
+    const { typeRetail } = useRef()
+    const { typeGrocery } = useRef()
+    const { typeEntertainment } = useRef()
+    const { typeSelfCare } = useRef()
+
+
 
     return (
         <>
         <fieldset>
             <div className="searchForm-Group">
-                <input onKeyUp={ e => 
-                {
-                setTerms("") 
-                setSearchTerms(e.target.value)
-                } }
+                <input onChange={ e => { setTerms(""); setSearchTerms(e.target.value) } }
                     type="text"
                     placeholder="Search"
                     id="searchTextInput"
-                    ref={terms}
-                    className="form-control"
-                    
-                />
-                <div id='buttonHolder'></div>
-                <button onClick={ e => 
-                {
-                setSearchTerms(null) 
-                setTerms(e.target.value = "Search")
-                } }
-                    type="text"
-                    id="searchTerms"
-                    ref={terms}
-                    className="search-button">
-                       <img id="buttonLogo" src={magnifyingGlassLogo}/>
-                    </button>
-                <div className="selections">
+                    ref={searchName}
+                    className="form-control"  
+                />                
                 <div className="searchCategories">
-
-                    <button onClick={ e => setTerms(e.target.value = "Cafe")}
+                    
+                    <button onClick={ e => { 
+                       setSearchTerms.value=""; 
+                       setTerms(e.target.value = "Cafe")
+                    }}
                     type="text"
                     id="searchTerms"
-                    ref={terms}
+                    ref={typeCafe}
                     className="searchOption">
-                        Cafe
+                              <img className="searchLogo" src={cafeLogo} alt="Logo"/>
+
                     </button>
 
-                    <button onClick={ e => setTerms(e.target.value = "Restaurant") }
+                    <button onClick={ e => {
+                        if (setSearchTerms !== "") setSearchTerms(""); 
+                        setTerms(e.target.value = "Restaurant") 
+                    }}
                     type="text"
                     id="searchTerms"
-                    ref={terms}
+                    ref={typeRestaurant}
                     className="searchOption">
-                        Restaurant
+                              <img className="searchLogo" src={restaurantLogo} alt="Logo"/>
                     </button>
 
-                    <button onClick={ e => setTerms(e.target.value = "Retail") }
+                    <button onClick={ e => { 
+                        if (setSearchTerms !== "") setSearchTerms("");
+                        setTerms(e.target.value = "Retail") }}
                     type="text"
                     id="searchTerms"
-                    ref={terms}
+                    ref={typeRetail}
                     className="searchOption">
-                        Retail
+                              <img className="searchLogo" src={retailLogo} alt="Logo"/>
+                    </button>
+                    
+                    <button onClick={ e => {
+                        if (setSearchTerms !== "") setSearchTerms("");
+                        setTerms(e.target.value = "Grocery") }}
+                    type="text"
+                    id="searchTerms"
+                    ref={typeGrocery}
+                    className="searchOption">
+                              <img className="searchLogo" src={groceryLogo} alt="Logo"/>
                     </button>
 
-                    <button onClick={ e => setTerms(e.target.value = "Grocery") }
+                    <button onClick={ e => {
+                        if (setSearchTerms !== "") setSearchTerms("");
+                        setTerms(e.target.value = "Entertainment") }}
                     type="text"
                     id="searchTerms"
-                    ref={terms}
+                    ref={typeEntertainment}
                     className="searchOption">
-                        Grocery
+                              <img className="searchLogo" src={entertainmentLogo} alt="Logo"/>
                     </button>
 
-                    <button onClick={ e => setTerms(e.target.value = "Entertainment") }
+                    <button onClick={ e => {
+                        if (setSearchTerms !== "") setSearchTerms("");
+                        setTerms(e.target.value = "Self-Care") }}
                     type="text"
                     id="searchTerms"
-                    ref={terms}
+                    ref={typeSelfCare}
                     className="searchOption">
-                        Entertainment
+                              <img className="searchLogo" src={selfcareLogo} alt="Logo"/>
                     </button>
-
-                    <button onClick={ e => setTerms(e.target.value = "Self-Care") }
-                    type="text"
-                    id="searchTerms"
-                    ref={terms}
-                    className="searchOption">
-                        Self-Care
-                    </button>
-                </div>
+                   
                 </div>
 
             </div>

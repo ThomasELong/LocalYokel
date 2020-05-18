@@ -14,7 +14,7 @@ export default () => {
   return (
     <>
       <div className="favorites">
-        <h2 className="favoritesTitle">Your Favorites</h2>
+        <div className="favoritesTitle">Your Favorites</div>
         <div className="favoritesContainer">
 
                 {
