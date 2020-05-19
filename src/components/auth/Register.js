@@ -53,7 +53,7 @@ const Register = (props) => {
   return (
     <div className="Button welcomeButton">
       <button
-        color="link"
+        className="welcomeButton"
         onClick={(event) => {
           event.preventDefault();
           toggle();

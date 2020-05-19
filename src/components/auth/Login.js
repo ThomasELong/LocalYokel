@@ -41,7 +41,7 @@ const Login = ({ toggle }) => {
   return (
     <>
       <form className="form--login">
-        <h2>Please sign in</h2>
+        <div className="welcomeHeader">Please sign in</div>
         <fieldset className="login">
           <label htmlFor="inputEmail"> Email address </label>
           <input

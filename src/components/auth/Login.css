@@ -5,7 +5,7 @@
     max-width: 95%;
     height: auto;
     background-color: #ffffff;
-    margin: 9em auto 3em auto;
+    margin: 6em auto 3em auto;
 }
 
 .authContainer {
@@ -14,6 +14,14 @@
     background-color: #ffffff;
     height: 32.5em;
     color: #7da2a9;
+}
+
+.welcomeHeader {
+    display: flex;
+    justify-content: center;
+    padding-top: .5em;
+    font-size: 25pt;
+
 }
 
 .form--login {
@@ -72,5 +80,6 @@ Button:active {
 }
 
 .welcomeButton {
-    margin-top: .25em;
+    margin-top: .5em;
+    color: #7da2a9;
 }

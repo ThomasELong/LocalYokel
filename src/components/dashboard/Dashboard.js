@@ -27,7 +27,7 @@ export default (toggle) => {
         </button>
       <img className="userLogo" src={Logo} alt="Logo"/>
       </div>
-      <h2>Dashboard</h2>
+      <h2>Your Dashboard</h2>
       <div className="customerContainer">
         <FavoriteProvider>
           <BusinessProvider>

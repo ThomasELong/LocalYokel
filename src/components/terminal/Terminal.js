@@ -45,7 +45,7 @@ export default () => {
   return (
     <>
       <div className="terminalContainer">
-        <div>
+        <div className="terminalHeader">
           <button
             className="terminalButton logoutButton"
             onClick={() => {
@@ -55,8 +55,8 @@ export default () => {
           >
             Log Out
           </button>
-        </div>
         <img className="userLogo" src={Logo} alt="Logo"/>
+        </div>
         <div>
           {currentBusiness.length ? (
             <>

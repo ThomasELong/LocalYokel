@@ -2,7 +2,7 @@ import React from "react";
 
 export default ({ business }) => (
   <section className="businessObject">
-    <h3 className="businessDetail">{business.name}</h3>
+    <h3 className="businessName">{business.name}</h3>
     <div className="businessDetail">{business.hours}</div>
     <div className="businessDetail">{business.address}</div>
     <div className="businessDetail">{business.phone}</div>
