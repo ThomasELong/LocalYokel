@@ -47,20 +47,17 @@ export const SearchResults = ({ searchTerms, searchTermsSet }) => {
   useEffect(() => {
     
     if (searchTermsSet !== "") {
-
-      const subsetName = businesses.filter((business) => business.name.toLowerCase().includes(searchTermsSet));
+      let subsetName = businesses.filter((business) => business.name.toLowerCase().includes(searchTermsSet));
       setFiltered(subsetName);
     } 
     else if (searchTerms === "Cafe" || "Restaurant" || "Grocery" || "Self-Care" || "Retail" || "Entertainment") {
-      const subsetType = businesses.filter((business) => business.businessTypes.includes(searchTerms)); 
+      let subsetType = businesses.filter((business) => business.businessTypes.includes(searchTerms)); 
       setFiltered(subsetType);
     } 
-    else if (searchTermsSet === "" && searchTerms === "") {
-      setFiltered([])
-    }
     else { setFiltered([]) }
+    
   }, [searchTerms, searchTermsSet, businesses]);
-
+console.log(filteredBusinesses)
 console.log(searchTerms)
 console.log(searchTermsSet)
 

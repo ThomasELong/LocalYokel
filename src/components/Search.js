@@ -1,5 +1,5 @@
 
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 import cafeLogo from "./images/cafe.png"
 import entertainmentLogo from "./images/entertainment.png"
 import groceryLogo from "./images/grocery.png"
@@ -18,13 +18,14 @@ export const SearchBar = ({ setTerms, setSearchTerms }) => {
     const { typeEntertainment } = useRef()
     const { typeSelfCare } = useRef()
 
-
-
     return (
         <>
         <fieldset>
             <div className="searchForm-Group">
-                <input onChange={ e => { setTerms(""); setSearchTerms(e.target.value) } }
+                <input onChange={ e => { 
+                        setTerms(null)
+                        setSearchTerms(e.target.value) 
+                    } }
                     type="text"
                     placeholder="Search"
                     id="searchTextInput"
@@ -34,19 +35,18 @@ export const SearchBar = ({ setTerms, setSearchTerms }) => {
                 <div className="searchCategories">
                     
                     <button onClick={ e => { 
-                       setSearchTerms.value=""; 
-                       setTerms(e.target.value = "Cafe")
-                    }}
+                        setSearchTerms("")
+                        setTerms(e.target.value = "Cafe")
+                    }} 
                     type="text"
                     id="searchTerms"
                     ref={typeCafe}
                     className="searchOption">
                               <img className="searchLogo" src={cafeLogo} alt="Logo"/>
-
                     </button>
 
                     <button onClick={ e => {
-                        if (setSearchTerms !== "") setSearchTerms(""); 
+                        setSearchTerms("")
                         setTerms(e.target.value = "Restaurant") 
                     }}
                     type="text"
@@ -57,7 +57,7 @@ export const SearchBar = ({ setTerms, setSearchTerms }) => {
                     </button>
 
                     <button onClick={ e => { 
-                        if (setSearchTerms !== "") setSearchTerms("");
+                        setSearchTerms("")
                         setTerms(e.target.value = "Retail") }}
                     type="text"
                     id="searchTerms"
@@ -67,7 +67,7 @@ export const SearchBar = ({ setTerms, setSearchTerms }) => {
                     </button>
                     
                     <button onClick={ e => {
-                        if (setSearchTerms !== "") setSearchTerms("");
+                        setSearchTerms("")
                         setTerms(e.target.value = "Grocery") }}
                     type="text"
                     id="searchTerms"
@@ -77,7 +77,7 @@ export const SearchBar = ({ setTerms, setSearchTerms }) => {
                     </button>
 
                     <button onClick={ e => {
-                        if (setSearchTerms !== "") setSearchTerms("");
+                        setSearchTerms("")
                         setTerms(e.target.value = "Entertainment") }}
                     type="text"
                     id="searchTerms"
@@ -87,7 +87,7 @@ export const SearchBar = ({ setTerms, setSearchTerms }) => {
                     </button>
 
                     <button onClick={ e => {
-                        if (setSearchTerms !== "") setSearchTerms("");
+                        setSearchTerms("")
                         setTerms(e.target.value = "Self-Care") }}
                     type="text"
                     id="searchTerms"

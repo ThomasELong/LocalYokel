@@ -6,14 +6,12 @@ import { SearchResults } from "../SearchResults";
 import { BusinessProvider } from "../businesses/BusinessProvider";
 import { CustomerNotesProvider } from "../notes/CustomerNotesProvider"
 import "../auth/Login.css";
-import { Button } from "reactstrap";
 import Logo from "../images/Local Yokel Logo.png"
 
 
 export default (toggle) => {
-  const [searchTerms, setTerms] = useState(null)
-  const [searchTermsSet, setSearchTerms] = useState("")
-
+  const [searchTerms, setTerms] = useState("")
+  const [searchTermsSet, setSearchTerms] = useState(null)
 
   return (
     <div className="dashboardContainer">
@@ -34,7 +32,7 @@ export default (toggle) => {
         <FavoriteProvider>
           <BusinessProvider>
               <div className="searchBar">
-                <SearchBar setTerms={setTerms} setSearchTerms={setSearchTerms}/>
+                <SearchBar setTerms={setTerms} setSearchTerms={setSearchTerms} searchTerms={searchTerms}/>
                 <SearchResults className="searchResultsContainer"searchTerms={searchTerms} searchTermsSet={searchTermsSet}/>
               </div>
               <div>
