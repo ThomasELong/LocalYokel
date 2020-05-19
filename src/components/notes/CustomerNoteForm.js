@@ -22,7 +22,6 @@ export default ({toggle, businessObject}) => {
 
     return (
         <form className="addBusinessForm">
-            <h4 className="addBusinessForm--Title">Notes:</h4>
             <fieldset>
                 <div className="form-group">
                     <input
@@ -30,27 +29,26 @@ export default ({toggle, businessObject}) => {
                         id="noteText"
                         ref={noteText}
                         required
-                        autoFocus
                         className="form-control"
-                        placeholder="Note Text"
+                        placeholder="Add A Note"
                         />
                 </div>
             </fieldset>
             
-            <Button type="submit"
+            <button 
                 onClick={
                     evt => {
                         evt.preventDefault()
                         createNewCustomerNote()
                     }
                 }
-                className="btn btn-primary">
+                className="Button">
                 Submit
-            </Button>
+            </button>
         </form>
     )
 
 
-}
 
+}
 

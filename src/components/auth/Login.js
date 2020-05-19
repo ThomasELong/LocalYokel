@@ -41,7 +41,7 @@ const Login = ({ toggle }) => {
   return (
     <>
       <form className="form--login">
-        <h2>Please sign in</h2>
+        <div className="welcomeHeader">Please sign in</div>
         <fieldset className="login">
           <label htmlFor="inputEmail"> Email address </label>
           <input
@@ -49,7 +49,6 @@ const Login = ({ toggle }) => {
             type="email"
             id="email"
             className="form-control"
-            placeholder="Email address"
             required
             autoFocus
           />
@@ -61,13 +60,12 @@ const Login = ({ toggle }) => {
             type="password"
             id="password"
             className="form-control"
-            placeholder="Password"
             required
           />
         </fieldset>
-        <Button color="link" onClick={handleLogin}>
+        <button className="Button welcomeButton" onClick={handleLogin}>
           Login
-        </Button>
+        </button>
       <div>
         <Register toggle={toggle} />
       </div>

@@ -6,19 +6,17 @@ import { SearchResults } from "../SearchResults";
 import { BusinessProvider } from "../businesses/BusinessProvider";
 import { CustomerNotesProvider } from "../notes/CustomerNotesProvider"
 import "../auth/Login.css";
-import { Button } from "reactstrap";
+import Logo from "../images/Local Yokel Logo.png"
+
 
 export default (toggle) => {
-  const [searchTerms, setTerms] = useState(null);
-
-  const [activeUser, setActiveUser] = useState(
-    localStorage.getItem("ly_user") || ""
-  );
+  const [searchTerms, setTerms] = useState("")
+  const [searchTermsSet, setSearchTerms] = useState(null)
 
   return (
     <div className="dashboardContainer">
-      <div>
-        <Button
+      <div className="dashboardHeader">
+        <button
           className="button__logout"
           onClick={() => {
             sessionStorage.clear();
@@ -26,15 +24,16 @@ export default (toggle) => {
           }}
         >
           Log Out
-        </Button>
+        </button>
+      <img className="userLogo" src={Logo} alt="Logo"/>
       </div>
-      <div className="title">Local Yokel</div>
+      <h2>Your Dashboard</h2>
       <div className="customerContainer">
         <FavoriteProvider>
           <BusinessProvider>
               <div className="searchBar">
-                <SearchBar setTerms={setTerms} />
-                <SearchResults searchTerms={searchTerms} />
+                <SearchBar setTerms={setTerms} setSearchTerms={setSearchTerms} searchTerms={searchTerms}/>
+                <SearchResults className="searchResultsContainer"searchTerms={searchTerms} searchTermsSet={searchTermsSet}/>
               </div>
               <div>
                 <CustomerNotesProvider>

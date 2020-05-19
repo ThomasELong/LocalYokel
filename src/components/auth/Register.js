@@ -51,21 +51,21 @@ const Register = (props) => {
   const toggle = () => setModal(!modal);
 
   return (
-    <div className="button--register">
-      <Button
-        color="link"
+    <div className="Button welcomeButton">
+      <button
+        className="welcomeButton"
         onClick={(event) => {
           event.preventDefault();
           toggle();
         }}
       >
         Register
-      </Button>
+      </button>
       <Modal isOpen={modal} toggle={toggle} className="regButton">
         <ModalHeader toggle={toggle}></ModalHeader>
 
         <ModalBody>
-          <main className="container--login">
+          <main className="containerLogin">
             <form className="form--register" onSubmit={handleRegister}>
               <h4 className="darkgray">Registration Form</h4>
               <fieldset>
@@ -75,7 +75,6 @@ const Register = (props) => {
                   type="text"
                   name="firstName"
                   className="form-control"
-                  placeholder="First name"
                   required
                 />
               </fieldset>
@@ -86,7 +85,6 @@ const Register = (props) => {
                   type="text"
                   name="lastName"
                   className="form-control"
-                  placeholder="Last name"
                   required
                 />
               </fieldset>
@@ -97,7 +95,6 @@ const Register = (props) => {
                   type="email"
                   name="email"
                   className="form-control"
-                  placeholder="Email address"
                   required
                 />
               </fieldset>
@@ -108,7 +105,6 @@ const Register = (props) => {
                   type="password"
                   name="password"
                   className="form-control"
-                  placeholder="Password"
                   required
                 />
               </fieldset>
@@ -119,7 +115,6 @@ const Register = (props) => {
                   type="password"
                   name="verifyPassword"
                   className="form-control"
-                  placeholder="Verify password"
                   required
                 />
               </fieldset>
@@ -139,9 +134,9 @@ const Register = (props) => {
                   ))}
                 </select>
               </fieldset>
-              <Button color="link" type="submit">
+              <button className="Button registerButton" type="submit">
                 Submit
-              </Button>
+              </button>
             </form>
           </main>
         </ModalBody>

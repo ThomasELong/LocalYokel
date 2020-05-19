@@ -1,5 +1,44 @@
-.searchContainer {
-    text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,300&display=swap" rel="stylesheet');
+
+
+.userLogo {
+    display: block;
+    max-width: 35%;
+    height: auto;
+    margin: 1em;
+    justify-content: right;
+}
+
+.searchLogo {
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    justify-content: center;
+}
+.dashboardContainer {
+    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    color: #536c71;
+    width: 100%;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 2.75em;
+}
+
+.dashboardHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    background-color: white;
+}
+
+.searchForm-Group {
+    display: inline;
+    justify-content: center;
 }
 
 .resultsContainer {
@@ -11,7 +50,6 @@
 }
 
 .singleSearchResult {
-    border: 1px solid black;
     margin: 1em;
     text-align: center;
     width: max-content;
@@ -55,7 +93,14 @@
     padding: 1em;
     margin: 1em 0;
     width: inherit;
-    border: 1px solid black;
+    background-color: #def2f1;
+    box-shadow: 3px 4px #a4bdc2;
+
+}
+
+.notesForm {
+    border-bottom: 2px solid #daa520;
+    margin-top: 1em;
 }
 
 .button__favorites {
@@ -63,13 +108,24 @@
     width: min-content;
 }
 
+.buttonContainer {
+    margin: 1em;
+}
+
 .favoritesTitle {
     display: flex;
     justify-content: center;
+    font-size: 2em;
+    margin-top: 1em;
+}
+
+.modal-header {
+    background-color: #feffff;
 }
 
 .modal-body {
     justify-content: center;
+    border-top: #daa520;
 }
 
 .modal-content {
@@ -87,9 +143,41 @@
 
 .button__logout {
     margin: 1em;
+    height: 75%
+}
+
+.favorite__name {
+    border: 1.5px solid #7da2a9;
+    border-radius: 10%;
+    padding: .25em 0 .25em 0;
 }
 
 .favorite__note {
-    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    font-size: 1.25em;
+    width: 100%;
+}
+
+.searchCategories {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: .5em;
+
+}
+
+.searchOption {
+    width: 2.75em;
+    height: auto;
+    justify-content: center;
+    margin: .25em;
+    border: 1px solid #d8e3e5;
+}
+
+.favoriteDetail {
+    display: block;
+    justify-content: center;
+    border-bottom: 2px solid #daa520;
 }
 

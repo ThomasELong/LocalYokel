@@ -5,6 +5,9 @@ import { Button, Modal, ModalBody, ModalHeader } from "reactstrap";
 import "./Terminal.css";
 import Business from "../businesses/Business";
 import { BusinessEditForm } from "../businesses/BusinessEditForm";
+import { BusinessTypeProvider } from "../businesses/BusinessTypeProvider";
+import Logo from "../images/Local Yokel Logo.png"
+
 
 export default () => {
   const userId = parseInt(sessionStorage.getItem("ly_user"));
@@ -23,75 +26,82 @@ export default () => {
     existingBusinessInfoCheck();
   }, []);
 
-  const currentBusinessObject = currentBusiness[0]
+  const currentBusinessObject = currentBusiness[0];
+  const [newBusModal, setNewBusModal] = useState(false);
+  const toggleNewBus = () => setNewBusModal(!newBusModal);
   const [editModal, setEditModal] = useState(false);
   const toggleEdit = () => setEditModal(!editModal);
+
   const newBusiness = currentBusiness.map((bus) => {
     return (
-      <div className="newBusiness">
+      <div>
         <div>
           <Business business={bus} />
         </div>
       </div>
     );
   });
-  
+
   return (
     <>
       <div className="terminalContainer">
-        <div>
-          <Button
-            className="button__logout"
+        <div className="terminalHeader">
+          <button
+            className="terminalButton logoutButton"
             onClick={() => {
               sessionStorage.clear();
               window.location.reload();
             }}
           >
             Log Out
-          </Button>
-
+          </button>
+        <img className="userLogo" src={Logo} alt="Logo"/>
         </div>
-        <div className="title">Local Yokel</div>
         <div>
           {currentBusiness.length ? (
             <>
-          <div>{newBusiness}</div>
-          <div>
-          <Button
-        color="link"
-        onClick={(event) => {
-          event.preventDefault();
-          toggleEdit();
-        }}
-      >Edit</Button>
-          </div>
-          
-          <div>
-          <Modal isOpen={editModal} toggle={toggleEdit}>
-            <ModalHeader toggle={toggleEdit}>
-              {newBusiness.name}
-            </ModalHeader>
-            <ModalBody>
+              <div className="newBusiness">{newBusiness}
+              
+                <button
+                  className="terminalButton"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    toggleEdit();
+                  }}
+                >
+                  Edit
+                </button>
+              </div>
+
+              <div>
+                <Modal isOpen={editModal} toggle={toggleEdit}>
+                  <ModalHeader toggle={toggleEdit}>
+                    {newBusiness.name}
+                  </ModalHeader>
+                  <ModalBody>
+                    <BusinessTypeProvider>
+                      <BusinessProvider>
+                        <BusinessEditForm
+                          key={currentBusinessObject.id}
+                          toggleEdit={toggleEdit}
+                          currentBusinessObject={currentBusinessObject}
+                          {...newBusiness}
+                        />
+                      </BusinessProvider>
+                    </BusinessTypeProvider>
+                  </ModalBody>
+                </Modal>{" "}
+              </div>
+            </>
+          ) : (
+            <BusinessTypeProvider>
               <BusinessProvider>
-              <BusinessEditForm
-                key={currentBusinessObject.id}
-                toggleEdit={toggleEdit}
-                currentBusinessObject={currentBusinessObject}
-                {...newBusiness}
-              />
+                <BusinessForm />
               </BusinessProvider>
-            </ModalBody>
-          </Modal>{" "}
-        </div>
-          </>
-        ) : (
-            <BusinessProvider>
-              <BusinessForm />
-            </BusinessProvider>
+            </BusinessTypeProvider>
           )}
         </div>
       </div>
     </>
   );
 };
-

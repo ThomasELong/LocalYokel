@@ -1,13 +1,26 @@
-.welcome {
-    display: flex;
-    justify-content: center;
-    background-color: lightgreen;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,300&display=swap" rel="stylesheet');
+
+.welcomeLogo {
+    display: block;
+    max-width: 95%;
+    height: auto;
+    background-color: #ffffff;
+    margin: 6em auto 3em auto;
 }
 
 .authContainer {
     display: flex;
     justify-content: center;
-    background-color: lightgreen;
+    background-color: #ffffff;
+    height: 32.5em;
+    color: #7da2a9;
+}
+
+.welcomeHeader {
+    display: flex;
+    justify-content: center;
+    padding-top: .5em;
+    font-size: 25pt;
 
 }
 
@@ -15,24 +28,58 @@
     width: 17em;
 }
 
+.form--register {
+    width: 75%;
+    margin-top: .75em;
+}
+
 #root {
     display: inline;
     position: relative;
-    top: 80px;
 }
 
+Button {
+    display: inline-block;
+    background: #def2f1;
+    color: #536c71;
+    box-shadow: 1px 2px #a4bdc2;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
 
+Button:hover,
+Button:focus {
+    background: #536c71;
+    color: #def2f1;
+}
 
+Button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
 
+Button:active {
+    transform: scale(0.99);
+}
 
+.registerButton {
+    margin-top: 1em;
+}
 
+.containerLogin {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    height: 32.5em;
+    color: #7da2a9;
+}
 
-
-
-
-
-
-
-
-
-
+.welcomeButton {
+    margin-top: .5em;
+    color: #7da2a9;
+}

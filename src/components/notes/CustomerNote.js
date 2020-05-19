@@ -6,22 +6,18 @@ export default ({ customerNote }) => {
   const { removeCustomerNote } = useContext(CustomerNotesContext)
 
   return (
-    <section className="favoriteItem">
+    <section className="note">
       <div className="custNote--text">{customerNote.noteText}</div>
+      <div className="custNote--timestamp">{new Date(customerNote.timestamp).toLocaleDateString()}</div>
 
       <div className="buttonContainer">
-          
-        <Button
-          className="button__favorites"
-          color="info"
-          size="sm"
+        <button
+          className="Button"
           onClick={() => {
             removeCustomerNote(customerNote.id);
-          }}
-        >
+          }}>
           Delete
-        </Button>
-
+        </button>
       </div>
     </section>
   );
