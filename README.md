@@ -1,7 +1,5 @@
 # Local Yokel
 
-![Local Yokel Logo](/Pictures/GitHubPics/Local Yokel Logo.png)
-
 ### Local Yokel is an application for your local community!
 
 Everyone is welcome to use it, but it is primarily built for communities that seek to consolidate information about their small business offerings. Users experience the ability to seek out small businesses applicable to their needs and interests, save them for future access, and keep a personalized data log of information about those saved businesses. 
