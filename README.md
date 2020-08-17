@@ -1,6 +1,6 @@
 # Local Yokel
 
-![Local Yokel Logo](Local Yokel Logo.png)
+<img src="src/components/images/Local Yokel Logo.png">
 
 ### Local Yokel is an application for your local community!
 
