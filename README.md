@@ -1,3 +1,26 @@
+# Local Yokel
+
+![Local Yokel Logo](/Pictures/GitHubPics/Local Yokel Logo.png)
+
+### Local Yokel is an application for your local community!
+
+Everyone is welcome to use it, but it is primarily built for communities that seek to consolidate information about their small business offerings. Users experience the ability to seek out small businesses applicable to their needs and interests, save them for future access, and keep a personalized data log of information about those saved businesses. 
+
+Small businesses have the freedom to log into their own accounts and update their information as needed. Have a sale coming up? Tell us about it! Did you recently develop a new website for your business? Share the link!
+
+This app is intended to connect people with their local community of small businesses in a way that larger apps have a difficult time providing. It cuts out all of the excess, those big brand, find-it-everywhere locations, and gives direct access to your local favorites.
+
+__Goals__
+
+1. _I am seeking to provide a user experience to both the customer and business owner looking to connect with each other more readily._
+2. _I would like to learn to utilize the planning stages to develop my application before it is built, rather than simply a means for brainstorming._
+3. _I am very interested in establishing a better understanding of design and how it relates to functionality._
+4. _I would like to develop a higher level of confidence in my grasp of the material we have learned in class so far._
+
+
+
+
+↓↓ Default React ReadMe Info ↓↓
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
